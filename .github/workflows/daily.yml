@@ -23,20 +23,18 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: pip install -r viral-tracker/requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Run scraper
         env:
           CJ_EMAIL: ${{ secrets.CJ_EMAIL }}
           CJ_PASSWORD: ${{ secrets.CJ_PASSWORD }}
-        run: |
-          cd viral-tracker
-          python scraper/main.py
+        run: python scraper/main.py
 
       - name: Commit and push updated products.json
         run: |
           git config user.name "viral-tracker-bot"
           git config user.email "bot@viral-tracker"
-          git add viral-tracker/docs/products.json
+          git add docs/products.json
           git diff --staged --quiet || git commit -m "chore: daily product update $(date -u +%Y-%m-%d)"
           git push
