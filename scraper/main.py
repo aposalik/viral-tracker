@@ -17,7 +17,7 @@ from trends import enrich_with_trend_score
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
-OUTPUT_PATH = Path(__file__).parent.parent / "public" / "products.json"
+OUTPUT_PATH = Path(__file__).parent.parent / "docs" / "products.json"
 TOP_N = 25  # how many products to keep in the final output
 
 
