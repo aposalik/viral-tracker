@@ -1,0 +1,42 @@
+name: Daily Viral Product Scrape
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # runs every day at 06:00 UTC (9AM Istanbul)
+  workflow_dispatch:        # manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r viral-tracker/requirements.txt
+
+      - name: Run scraper
+        env:
+          CJ_EMAIL: ${{ secrets.CJ_EMAIL }}
+          CJ_PASSWORD: ${{ secrets.CJ_PASSWORD }}
+        run: |
+          cd viral-tracker
+          python scraper/main.py
+
+      - name: Commit and push updated products.json
+        run: |
+          git config user.name "viral-tracker-bot"
+          git config user.email "bot@viral-tracker"
+          git add viral-tracker/public/products.json
+          git diff --staged --quiet || git commit -m "chore: daily product update $(date -u +%Y-%m-%d)"
+          git push

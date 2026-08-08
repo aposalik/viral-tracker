@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-08T06:00:00+00:00",
+  "total_scanned": 3,
+  "products": [
+    {
+      "name": "Sample Product — Run scraper to get live data",
+      "category": "All Departments",
+      "rank_change_pct": 0,
+      "asin": "",
+      "url": "",
+      "source": "amazon_movers",
+      "trend_score": 0,
+      "cj_price": null,
+      "cj_shipping_days": null,
+      "cj_product_id": null,
+      "cj_image_url": null,
+      "virality_score": 0,
+      "estimated_margin": "N/A"
+    }
+  ]
+}
