@@ -27,6 +27,7 @@ def get_access_token() -> str | None:
             timeout=10,
         )
         data = resp.json()
+        logger.info(f"CJ auth response: result={data.get('result')} message={data.get('message')} code={data.get('code')}")
         if data.get("result"):
             token = data["data"]["accessToken"]
             _token_cache["token"] = token
@@ -45,14 +46,11 @@ def get_hot_products(token: str, page: int = 1, page_size: int = 50) -> list[dic
         resp = requests.get(
             f"{CJ_BASE}/product/list",
             headers={"CJ-Access-Token": token},
-            params={
-                "pageNum": page,
-                "pageSize": page_size,
-                "orderBy": "CREATED_AT",  # newest trending items
-            },
+            params={"pageNum": page, "pageSize": page_size},
             timeout=15,
         )
         data = resp.json()
+        logger.info(f"CJ product list response: result={data.get('result')} message={data.get('message')}")
         if data.get("result") and data["data"].get("list"):
             return data["data"]["list"]
     except Exception as e:

@@ -64,7 +64,7 @@ def run():
     token = get_access_token()
     if not token:
         logger.error("No CJ token — cannot fetch products. Set CJ_EMAIL and CJ_PASSWORD.")
-        return
+        raise SystemExit(1)
 
     # 1. Pull CJ hot products as base
     logger.info("Fetching CJ hot products...")
@@ -72,7 +72,7 @@ def run():
 
     if not products:
         logger.error("No products from CJ — aborting")
-        return
+        raise SystemExit(1)
 
     # Filter out products with no name or bad data
     products = [p for p in products if p["name"] and len(p["name"]) > 3]
