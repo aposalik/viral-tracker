@@ -1,22 +1,13 @@
 {
-  "generated_at": "2026-08-10T11:17:09.053707+00:00",
-  "total_scanned": 40,
+  "generated_at": "2026-08-10T11:38:12.448232+00:00",
+  "total_scanned": 50,
+  "sources": {
+    "cj_hot": 50,
+    "google_trends": 0,
+    "tiktok_signal": 0,
+    "aliexpress": 0
+  },
   "products": [
-    {
-      "name": "Mosquito Lamp For Food Factory Workshops Commercial Use",
-      "category": "Home Office Storage",
-      "rank_change_pct": 0,
-      "asin": "",
-      "url": "",
-      "source": "cj_hot",
-      "cj_price": 8.13,
-      "cj_shipping_days": "7-15",
-      "cj_product_id": "2608100848061611900",
-      "cj_image_url": "https://oss-cf.cjdropshipping.com/product/2026/08/10/08/11d463c2-6a51-49dd-97a4-1a093f9229f8_fine.jpeg",
-      "trend_score": 1,
-      "virality_score": 81,
-      "estimated_margin": "32-38%"
-    },
     {
       "name": "Anion Automatic Hair Curler Lazy Curly Hair Rebonding",
       "category": "Home Office Storage",
@@ -198,6 +189,21 @@
       "estimated_margin": "31-38%"
     },
     {
+      "name": "Mosquito Lamp For Food Factory Workshops Commercial Use",
+      "category": "Home Office Storage",
+      "rank_change_pct": 0,
+      "asin": "",
+      "url": "",
+      "source": "cj_hot",
+      "cj_price": 8.13,
+      "cj_shipping_days": "7-15",
+      "cj_product_id": "2608100848061611900",
+      "cj_image_url": "https://oss-cf.cjdropshipping.com/product/2026/08/10/08/11d463c2-6a51-49dd-97a4-1a093f9229f8_fine.jpeg",
+      "trend_score": 0,
+      "virality_score": 80,
+      "estimated_margin": "32-38%"
+    },
+    {
       "name": "Creative Moer Stripe New Six Models Physical Dynamic Reflection Ceramic Coffee Cup",
       "category": "Drinkware",
       "rank_change_pct": 0,
@@ -333,18 +339,33 @@
       "estimated_margin": "31-38%"
     },
     {
-      "name": "Washing Machine Cleaner",
-      "category": "Home Office Storage",
+      "name": "Outdoor Sports Tops For Men And Women",
+      "category": "Print",
       "rank_change_pct": 0,
       "asin": "",
       "url": "",
       "source": "cj_hot",
-      "cj_price": 2.02,
+      "cj_price": 7.64,
       "cj_shipping_days": "7-15",
-      "cj_product_id": "2608100757241609300",
-      "cj_image_url": "https://cf.cjdropshipping.com/quick/product/7916d310-7f56-4517-be7c-b4ce0affd1c7.jpg",
-      "trend_score": 36,
-      "virality_score": 76,
+      "cj_product_id": "2608100750291621300",
+      "cj_image_url": "https://oss-cf.cjdropshipping.com/product/2026/08/10/07/9a35a273-89e6-43a1-9c6e-460edc490e9d.jpg",
+      "trend_score": 0,
+      "virality_score": 80,
+      "estimated_margin": "31-38%"
+    },
+    {
+      "name": "Women's SpringAutumn Knitted Cardigan With Butterflies",
+      "category": "Blazers",
+      "rank_change_pct": 0,
+      "asin": "",
+      "url": "",
+      "source": "cj_hot",
+      "cj_price": 7.64,
+      "cj_shipping_days": "7-15",
+      "cj_product_id": "2608100739231630600",
+      "cj_image_url": "https://cf.cjdropshipping.com/quick/product/e80e126a-d535-4367-b049-f41de91ecb38.jpg",
+      "trend_score": 0,
+      "virality_score": 80,
       "estimated_margin": "31-38%"
     },
     {
@@ -361,21 +382,6 @@
       "trend_score": 0,
       "virality_score": 60,
       "estimated_margin": "31-38%"
-    },
-    {
-      "name": "Cat Bed Scratching Post And Cat Tree All In Onepet Cat Toy",
-      "category": "Cat Trees & Condos",
-      "rank_change_pct": 0,
-      "asin": "",
-      "url": "",
-      "source": "cj_hot",
-      "cj_price": 25.17,
-      "cj_shipping_days": "7-15",
-      "cj_product_id": "2608100835281613400",
-      "cj_image_url": "https://oss-cf.cjdropshipping.com/product/2026/08/10/08/1f8ed559-ae10-445b-b897-1978ac8d728c.jpg",
-      "trend_score": 0,
-      "virality_score": 60,
-      "estimated_margin": "32-38%"
     }
   ]
 }
