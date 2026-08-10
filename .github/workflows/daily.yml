@@ -27,8 +27,7 @@ jobs:
 
       - name: Run scraper
         env:
-          CJ_EMAIL: ${{ secrets.CJ_EMAIL }}
-          CJ_PASSWORD: ${{ secrets.CJ_PASSWORD }}
+          CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
         run: python scraper/main.py
 
       - name: Commit and push updated products.json

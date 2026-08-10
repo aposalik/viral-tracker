@@ -13,17 +13,16 @@ def get_access_token() -> str | None:
     if _token_cache.get("token") and _token_cache.get("expires_at", 0) > time.time():
         return _token_cache["token"]
 
-    email = os.environ.get("CJ_EMAIL")
-    password = os.environ.get("CJ_PASSWORD")
+    api_key = os.environ.get("CJ_API_KEY")
 
-    if not email or not password:
-        logger.warning("CJ_EMAIL / CJ_PASSWORD not set — skipping CJ lookup")
+    if not api_key:
+        logger.warning("CJ_API_KEY not set — skipping CJ lookup")
         return None
 
     try:
         resp = requests.post(
             f"{CJ_BASE}/authentication/getAccessToken",
-            json={"email": email, "password": password},
+            json={"apiKey": api_key},
             timeout=10,
         )
         data = resp.json()
