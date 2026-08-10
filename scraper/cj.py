@@ -82,7 +82,8 @@ def get_cj_products_as_base(token: str) -> list[dict]:
     products = []
 
     for item in raw:
-        sell_price = float(item.get("sellPrice") or 0)
+        raw_price = str(item.get("sellPrice") or "0")
+        sell_price = float(raw_price.split("--")[0].strip() or 0)
         if sell_price <= 0:
             continue
 
