@@ -18,6 +18,60 @@ ECOMMERCE_CATEGORIES = [
 ]
 
 
+def discover_trending_keywords() -> list[str]:
+    """
+    DISCOVERY MODE — finds what's trending in the US today on Google,
+    then filters for product-like terms. These become search queries
+    for the CJ catalog to find sourceable products.
+    """
+    pytrends = TrendReq(hl="en-US", tz=360)
+    keywords: list[str] = []
+
+    try:
+        # Daily trending searches in the US
+        trending_df = pytrends.trending_searches(pn="united_states")
+        raw = trending_df[0].tolist()
+
+        # Keep terms that look like products (short, not a person's name, no news verbs)
+        skip_words = {"dies", "dead", "killed", "arrested", "shooting", "crash", "vs", "election"}
+        for term in raw:
+            words = term.lower().split()
+            if len(words) > 5:
+                continue
+            if any(w in skip_words for w in words):
+                continue
+            keywords.append(term)
+
+        logger.info(f"Google Trends discovery: {len(keywords)} trending keywords")
+    except Exception as e:
+        logger.warning(f"Trending search discovery failed: {e}")
+
+    # Also add rising queries from ecommerce seed categories
+    try:
+        pytrends2 = TrendReq(hl="en-US", tz=360)
+        seeds = ECOMMERCE_CATEGORIES[:5]
+        pytrends2.build_payload(seeds, timeframe="now 7-d", geo="US")
+        related = pytrends2.related_queries()
+        for kw in seeds:
+            if kw in related:
+                rising = related[kw].get("rising")
+                if rising is not None and not rising.empty:
+                    keywords.extend(rising["query"].head(5).tolist())
+        time.sleep(1.5)
+    except Exception as e:
+        logger.warning(f"Rising query discovery failed: {e}")
+
+    # Deduplicate
+    seen = set()
+    unique = []
+    for kw in keywords:
+        if kw.lower() not in seen:
+            seen.add(kw.lower())
+            unique.append(kw)
+
+    return unique[:30]
+
+
 def get_rising_searches(categories: list[str] = None) -> dict[str, int]:
     """
     Returns a dict of {keyword: interest_score (0-100)} for rising searches
